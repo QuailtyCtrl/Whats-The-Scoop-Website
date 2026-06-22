@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import heroCone from "@/assets/wts-hero.png.asset.json";
 import flavorStrawberry from "@/assets/flavor-strawberry.jpg";
 import flavorMint from "@/assets/flavor-mint.jpg";
 import flavorCaramel from "@/assets/flavor-caramel.jpg";
-import wtsLogo from "@/assets/wts-logo.png.asset.json";
+import heroCone from "@/assets/wts-hero.png";
+import wtsLogo from "@/assets/wts-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Handcrafted ice cream, non-dairy scoops and frozen treats in Innisfil, Ontario.",
       },
-      { property: "og:image", content: heroCone.url },
+      { property: "og:image", content: heroCone },
     ],
   }),
   component: Index,
@@ -242,7 +242,7 @@ function Index() {
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 md:px-10 py-6 border-b border-cocoa/5">
         <a href="#top" className="flex items-center" aria-label="What's The Scoop? home">
-          <img src={wtsLogo.url} alt="What's The Scoop?" className="h-12 md:h-14 w-auto" />
+          <img src={wtsLogo} alt="What's The Scoop?" className="h-12 md:h-14 w-auto" />
         </a>
         <div className="hidden md:flex gap-8 font-semibold uppercase text-xs tracking-[0.18em]">
           <a href="#flavours" className="hover:text-strawberry transition-colors">Flavours</a>
@@ -290,7 +290,7 @@ function Index() {
           <div className="relative">
             <div className="w-full aspect-square bg-mint/15 rounded-[3.5rem] overflow-hidden ring-1 ring-cocoa/5">
               <img
-                src={heroCone.url}
+                src={heroCone}
                 alt="Triple-scoop waffle cone with strawberry, mint and vanilla"
                 width={1200}
                 height={1200}
