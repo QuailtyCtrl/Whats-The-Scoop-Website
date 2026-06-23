@@ -28,18 +28,18 @@ export const Route = createFileRoute("/")({
 
 const flavors = [
   {
-    name: "Strawberry Field",
+    name: "Strawberries 'N' Cream",
     note: "Fresh local berries swirled with sweet cream",
     img: flavorStrawberry,
   },
   {
-    name: "Midnight Mint",
+    name: "Mint Chocolate Chip",
     note: "Cool peppermint with dark cocoa flakes",
     img: flavorMint,
     tint: "bg-mint/15",
   },
   {
-    name: "Salted Toffee",
+    name: "Salty Caramel",
     note: "Sea salt meets buttery golden caramel",
     img: flavorCaramel,
   },
@@ -49,62 +49,112 @@ const categories = [
   {
     eyebrow: "01",
     title: "Flavours",
-    body: "Sixteen rotating tubs of small-batch ice cream made in Canada and shipped every week.",
+    body: "50+ flavours of small-batch ice cream made in Canada — from classics like Vanilla and Chocolate to fan favourites like Moon Mist and Tiger Tail.",
   },
   {
     eyebrow: "02",
     title: "Non-Dairy",
-    body: "Coconut-cream and oat-based scoops so everyone gets a cone.",
+    body: "Sorbets and sherbets so everyone gets a scoop — including Blue Raspberry, Rainbow, and Watermelon.",
   },
   {
     eyebrow: "03",
     title: "Frozen Treats",
-    body: "Sundaes, milkshakes, banana splits and dipped soft-serve cones.",
+    body: "Floats, milkshakes, ice cream sandwiches, and cold drinks to round out your visit.",
   },
 ];
 
 const menuFlavors = [
-  { name: "Strawberry Field", emoji: "🍓", img: flavorStrawberry },
-  { name: "Midnight Mint", emoji: "🌿", img: flavorMint },
-  { name: "Salted Toffee", emoji: "🍯", img: flavorCaramel },
-  { name: "Vanilla Bean", emoji: "🍦", tint: "bg-cream" },
-  { name: "Chocolate Fudge", emoji: "🍫", tint: "bg-cocoa/10" },
-  { name: "Cookies & Cream", emoji: "🍪", tint: "bg-cream" },
+  { name: "Algonquin Canoe", emoji: "🛶", tint: "bg-mint/15" },
+  { name: "Banana Fudge", emoji: "🍌", tint: "bg-cream" },
+  { name: "Big Foot", emoji: "🦶", tint: "bg-cocoa/10" },
   { name: "Birthday Cake", emoji: "🎂", tint: "bg-strawberry/15" },
+  { name: "Black Raspberry Cheesecake", emoji: "🫐", tint: "bg-strawberry/15" },
+  { name: "Black Sweet Cherry", emoji: "🍒", tint: "bg-strawberry/15" },
+  { name: "Blue Bubblegum", emoji: "🫧", tint: "bg-mint/15" },
+  { name: "Blueberry Bliss", emoji: "🫐", tint: "bg-mint/15" },
+  { name: "Butterscotch Ripple", emoji: "🍯", tint: "bg-cream" },
+  { name: "Cappuccino No Sugar Added", emoji: "☕", tint: "bg-cocoa/10" },
+  { name: "Captain Cyclone", emoji: "🌀", tint: "bg-mint/15" },
+  { name: "Chocolate", emoji: "🍫", tint: "bg-cocoa/10" },
+  { name: "Chocolate Chip Cookie Dough", emoji: "🍪", tint: "bg-cream" },
+  { name: "Chocolate Fudge Brownie", emoji: "🍫", tint: "bg-cocoa/10" },
+  { name: "Chocolate Salty Caramel", emoji: "🍬", tint: "bg-cocoa/10" },
+  { name: "Cinnamon Bunz", emoji: "🥐", tint: "bg-cream" },
+  { name: "Coconut", emoji: "🥥", tint: "bg-cream" },
+  { name: "Cookies 'N' Cream", emoji: "🍪", tint: "bg-cream" },
+  { name: "Cotton Candy", emoji: "🍭", tint: "bg-strawberry/15" },
+  { name: "Dutch Apple Pie", emoji: "🍎", tint: "bg-cream" },
+  { name: "Espresso Flake", emoji: "☕", tint: "bg-cocoa/10" },
+  { name: "French Vanilla Light", emoji: "🍦", tint: "bg-cream" },
+  { name: "French Vanilla with Bean", emoji: "🍦", tint: "bg-cream" },
+  { name: "Grand Slam", emoji: "⚾", tint: "bg-strawberry/15" },
+  { name: "Grapenut", emoji: "🌾", tint: "bg-cream" },
+  { name: "Lavender Lemonade", emoji: "💜", tint: "bg-mint/15" },
+  { name: "Lemon Chiffon", emoji: "🍋", tint: "bg-cream" },
+  { name: "Mango", emoji: "🥭", tint: "bg-cream" },
+  { name: "Mango Frozen Dessert", emoji: "🥭", tint: "bg-mint/15" },
   { name: "Maple Walnut", emoji: "🍁", tint: "bg-cream" },
+  { name: "Milk Chocolate Caramel Rollover", emoji: "🍫", tint: "bg-cocoa/10" },
+  { name: "Mint Chocolate Chip", emoji: "🌿", img: flavorMint, tint: "bg-mint/15" },
+  { name: "Monster Cookie", emoji: "🍪", tint: "bg-cream" },
+  { name: "Moon Mist", emoji: "🌙", tint: "bg-mint/15" },
+  { name: "Peanut Butter Chocolate", emoji: "🥜", tint: "bg-cocoa/10" },
+  { name: "Peanut Butter Pretzel", emoji: "🥨", tint: "bg-cream" },
+  { name: "Pistachio Almond", emoji: "🌰", tint: "bg-mint/15" },
+  { name: "Pralines 'N' Cream", emoji: "🍮", tint: "bg-cream" },
+  { name: "Reese's Pieces", emoji: "🍬", tint: "bg-cream" },
+  { name: "Rocky Road", emoji: "🏔️", tint: "bg-cocoa/10" },
+  { name: "Rum Runnin' Raisin", emoji: "🍇", tint: "bg-cocoa/10" },
+  { name: "S'more G'lore", emoji: "🔥", tint: "bg-cocoa/10" },
+  { name: "Salty Caramel", emoji: "🍯", img: flavorCaramel },
+  { name: "Strawberries 'N' Cream", emoji: "🍓", img: flavorStrawberry },
+  { name: "Strawberries Frozen Dessert", emoji: "🍓", tint: "bg-strawberry/15" },
+  { name: "Strawberries Matcha", emoji: "🍵", tint: "bg-mint/15" },
+  { name: "Tiger Tail", emoji: "🐯", tint: "bg-cream" },
+  { name: "True North Cherry Cheesecake", emoji: "🍒", tint: "bg-strawberry/15" },
+  { name: "Vanilla", emoji: "🍦", tint: "bg-cream" },
 ];
 
 const menuNonDairy = [
-  { name: "Coconut Mango", emoji: "🥭", tint: "bg-mint/15" },
-  { name: "Oat Cookie Dough", emoji: "🥣", tint: "bg-cream" },
-  { name: "Dark Chocolate Sorbet", emoji: "🍫", tint: "bg-cocoa/10" },
-  { name: "Raspberry Sorbet", emoji: "🫐", tint: "bg-strawberry/15" },
-  { name: "Lemon Sorbet", emoji: "🍋", tint: "bg-cream" },
+  { name: "Blue Raspberry Sorbet", emoji: "🫐", tint: "bg-mint/15" },
+  { name: "Lemon Lime Sorbet", emoji: "🍋", tint: "bg-cream" },
+  { name: "Lime Sherbet", emoji: "🍈", tint: "bg-mint/15" },
+  { name: "Orange Sherbet", emoji: "🍊", tint: "bg-cream" },
+  { name: "Peach Sorbet", emoji: "🍑", tint: "bg-cream" },
+  { name: "Rainbow Sherbet", emoji: "🌈", tint: "bg-strawberry/15" },
+  { name: "Raspberry Sherbet", emoji: "🫐", tint: "bg-strawberry/15" },
+  { name: "Strawberry Sorbet", emoji: "🍓", tint: "bg-strawberry/15" },
+  { name: "Vanilla", emoji: "🍦", tint: "bg-cream" },
+  { name: "Watermelon Sherbet", emoji: "🍉", tint: "bg-mint/15" },
 ];
 
 const menuFrozenTreats = [
-  { name: "Hand-Dipped Soft Serve", emoji: "🍦", tint: "bg-cream" },
-  { name: "Loaded Sundae", emoji: "🍨", tint: "bg-strawberry/15" },
-  { name: "Banana Split", emoji: "🍌", tint: "bg-mint/15" },
-  { name: "Thick Milkshake", emoji: "🥤", tint: "bg-cream" },
-  { name: "Root Beer Float", emoji: "🥛", tint: "bg-cocoa/10" },
-  { name: "Freezies", emoji: "🧊", tint: "bg-mint/15" },
+  { name: "Floats — Any Flavour + Pop", emoji: "🥤", tint: "bg-cream" },
+  { name: "Ice Cream Sandwiches — Any Flavour + Cookie", emoji: "🍪", tint: "bg-cocoa/10" },
+  { name: "Milkshakes — 2% or Oat Milk", emoji: "🥛", tint: "bg-cream" },
+  { name: "Water", emoji: "💧", tint: "bg-mint/15" },
+  { name: "Coke / Diet Coke", emoji: "🥤", tint: "bg-cocoa/10" },
+  { name: "Ginger Ale", emoji: "🫧", tint: "bg-cream" },
+  { name: "Orange Crush / Grape Crush", emoji: "🍊", tint: "bg-strawberry/15" },
+  { name: "Root Beer / Cream Soda", emoji: "🍺", tint: "bg-cocoa/10" },
+  { name: "Iced Tea", emoji: "🍵", tint: "bg-cream" },
+  { name: "Apple Juice", emoji: "🍎", tint: "bg-cream" },
 ];
 
 const scoopPrices = [
-  { size: "Kid Scoop", price: "$4.50" },
-  { size: "Single Scoop", price: "$5.75" },
-  { size: "Double Scoop", price: "$7.95" },
-  { size: "Waffle Cone +", price: "$1.50" },
+  { size: "Kiddie Scoop", price: "$4.00" },
+  { size: "One Scoop", price: "$6.26" },
+  { size: "Two Scoops", price: "$13.75" },
+  { size: "Three Scoops", price: "$16.75" },
+  { size: "Five Scoops", price: "$20.25" },
+  { size: "Waffle Cone +", price: "$1.00" },
 ];
 
 const treatPrices = [
-  { size: "Soft Serve (S/L)", price: "$4.50 / $6.50" },
-  { size: "Sundae", price: "$8.95" },
-  { size: "Banana Split", price: "$10.95" },
-  { size: "Milkshake", price: "$7.50" },
-  { size: "Float", price: "$6.50" },
-  { size: "Freezies", price: "$2.00" },
+  { size: "Floats (Any Flavour + Pop)", price: "$9.95" },
+  { size: "Ice Cream Sandwiches (Any Flavour + Cookie)", price: "$9.95" },
+  { size: "Milkshakes (2% or Oat Milk)", price: "$13.75" },
+  { size: "Drinks (Water, Pop, Juice…)", price: "$2.00" },
 ];
 
 type MenuItem = { name: string; emoji: string; img?: string; tint?: string };
@@ -245,9 +295,9 @@ function Index() {
           <img src={wtsLogo} alt="What's The Scoop?" className="h-12 md:h-14 w-auto" />
         </a>
         <div className="hidden md:flex gap-8 font-semibold uppercase text-xs tracking-[0.18em]">
-          <a href="#flavours" className="hover:text-strawberry transition-colors">Flavours</a>
-          <a href="#treats" className="hover:text-strawberry transition-colors">Frozen Treats</a>
-          <a href="#visit" className="hover:text-strawberry transition-colors">Visit Innisfil</a>
+          <a href="#flavours" className="hover:text-strawberry transition-colors">Our Menu</a>
+          <a href="#treats" className="hover:text-strawberry transition-colors">Socials</a>
+          <a href="#visit" className="hover:text-strawberry transition-colors">About Us</a>
         </div>
         <a
           href="#visit"
@@ -299,11 +349,11 @@ function Index() {
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-3xl shadow-xl flex items-center gap-4 border border-cream">
               <div className="size-12 rounded-full bg-strawberry grid place-items-center text-white font-display text-lg font-semibold">
-                16+
+                50+
               </div>
               <div>
-                <div className="font-semibold text-sm">Weekly Flavours</div>
-                <div className="text-xs text-cocoa/60">Rotating all summer</div>
+                <div className="font-semibold text-sm">Rotating Flavours</div>
+                <div className="text-xs text-cocoa/60">Something for everyone</div>
               </div>
             </div>
           </div>
@@ -332,7 +382,7 @@ function Index() {
                 Fan Favourites
               </h2>
               <p className="text-cocoa/60 uppercase tracking-[0.18em] text-xs font-semibold">
-                Voted best in Innisfil
+                50+ flavours to choose from
               </p>
             </div>
             <button
@@ -376,21 +426,21 @@ function Index() {
               Beyond the Scoop
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-semibold leading-tight">
-              Sundaes, shakes & dipped cones.
+              Floats, shakes & sandwiches.
             </h2>
             <p className="text-cream/70 max-w-md leading-relaxed">
-              Banana splits piled high, thick milkshakes blended to order, and
-              soft-serve dipped in our signature chocolate shell. Frozen treats
-              for every kind of summer day.
+              Floats made with any flavour and your favourite pop, thick milkshakes
+              blended with 2% or oat milk, and ice cream sandwiches with any
+              flavour and cookie. Cold drinks too — the perfect summer combo.
             </p>
           </div>
           <ul className="md:col-span-2 grid gap-3 text-sm">
             {[
-              "Hand-dipped soft serve",
-              "Loaded sundaes",
-              "Banana splits",
-              "Thick milkshakes",
-              "Floats & freezies",
+              "Floats — any flavour + pop",
+              "Ice cream sandwiches — any flavour + cookie",
+              "Milkshakes — 2% or oat milk",
+              "Coke, ginger ale, crushes & more",
+              "Apple juice, iced tea & water",
             ].map((t) => (
               <li
                 key={t}
@@ -473,7 +523,7 @@ function Index() {
 
       {/* Footer */}
       <footer className="bg-cocoa text-cream px-6 md:px-10 py-20">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+        <div  className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
           <div className="col-span-2">
             <div className="font-display text-3xl font-semibold text-strawberry mb-4">
               What's The Scoop?
