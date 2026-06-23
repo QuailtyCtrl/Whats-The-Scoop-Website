@@ -818,7 +818,7 @@ a, button, a *, button *, [role="button"], label, input, select {
                     Instagram
                   </div>
                   <div className="font-display text-2xl font-semibold group-hover:text-strawberry transition-colors">
-                    @whatsthescoop
+                    @whatsthescoop3
                   </div>
                 </div>
               </a>
@@ -965,7 +965,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 <div className="flex items-center gap-x-2 opacity-70 select-none">
   {/* Link 1: SAM Studios (Normal Pointer Cursor) */}
   <a 
-    href="#" 
+    href="https://samstuidos.vercel.app/#work" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"
@@ -978,7 +978,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 
   {/* Link 2: Project AA-00 (Normal Pointer Cursor) */}
   <a 
-    href="#" 
+    href="https://samstuidos.vercel.app/#work" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"
