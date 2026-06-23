@@ -965,7 +965,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 <div className="flex items-center gap-x-2 opacity-70 select-none">
   {/* Link 1: SAM Studios (Normal Pointer Cursor) */}
   <a 
-    href="https://samstuidos.vercel.app/#work" 
+    href="https://samstuidos.vercel.app" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"
@@ -978,7 +978,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 
   {/* Link 2: Project AA-00 (Normal Pointer Cursor) */}
   <a 
-    href="https://samstuidos.vercel.app/#work" 
+    href="https://samstuidos.vercel.app" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"
