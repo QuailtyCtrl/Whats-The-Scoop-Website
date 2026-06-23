@@ -82,10 +82,10 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Handcrafted ice cream, non-dairy scoops and frozen treats in Innisfil, Ontario.",
       },
-      { property: "og:image", content: heroCone },
+      { property: "og:image", content: "https://whatsthescoop.ca/favicon.png" },
     ],
     links: [
-      { rel: "icon", type: "image/png", href: heroCone },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   component: Index,
@@ -367,8 +367,10 @@ function MenuModal({
 }
 
 function getTodayHours(date: Date): { open: number; close: number } | null {
-  const month = date.getMonth(); 
-  const day = date.getDay(); 
+  // Use Eastern Time (store is in Innisfil, ON) so the badge is correct for all visitors
+  const est = new Date(date.toLocaleString("en-US", { timeZone: "America/Toronto" }));
+  const month = est.getMonth();
+  const day = est.getDay();
   const isWeekend = day === 0 || day === 6;
 
   if (month === 6 || month === 7) return { open: 12 * 60, close: 21 * 60 };
@@ -386,8 +388,10 @@ function OpenStatusBadge() {
   }, []);
 
   const hours = getTodayHours(now);
-  const minutes = now.getHours() * 60 + now.getMinutes();
-  const seconds = now.getSeconds();
+  // Use Eastern Time for minute/second calculations to match getTodayHours
+  const est = new Date(now.toLocaleString("en-US", { timeZone: "America/Toronto" }));
+  const minutes = est.getHours() * 60 + est.getMinutes();
+  const seconds = est.getSeconds();
   const isOpen = !!hours && minutes >= hours.open && minutes < hours.close;
 
   let label = "Closed today";
@@ -437,9 +441,12 @@ function Index() {
   const [isExiting, setIsExiting] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
 
-  // Unified Exit Handler to support transition timing
+  // Unified Exit Handler — stored in a ref so the rAF loop always calls the latest version
+  // (avoids stale closure where isExiting is captured as false forever)
+  const isExitingRef = useRef(false);
   const handleIntroComplete = () => {
-    if (isExiting) return;
+    if (isExitingRef.current) return;
+    isExitingRef.current = true;
     setIsExiting(true);
     // Give slide-up animation exactly 650ms to clear the screen before unmounting the DOM node
     setTimeout(() => {
@@ -798,7 +805,7 @@ a, button, a *, button *, [role="button"], label, input, select {
                 </div>
               </a>
               <a
-                href="https://www.instagram.com/p/DJjh_L4RVE0/"
+                href="https://www.instagram.com/whatsthescoop.innisfil/"
                 target="_blank"
                 rel="noreferrer"
                 className="group bg-white rounded-3xl p-8 ring-1 ring-cocoa/5 hover:-translate-y-1 transition-transform shadow-lg shadow-cocoa/5 flex items-center gap-5"
@@ -926,7 +933,7 @@ a, button, a *, button *, [role="button"], label, input, select {
         </li>
         <li>
           <a
-            href="https://www.instagram.com/p/DJjh_L4RVE0/"
+            href="https://www.instagram.com/whatsthescoop.innisfil/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-cream/60 hover:text-cream transition-colors duration-200"
@@ -958,7 +965,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 <div className="flex items-center gap-x-2 opacity-70 select-none">
   {/* Link 1: SAM Studios (Normal Pointer Cursor) */}
   <a 
-    href="https://samstudios-placeholder.com" 
+    href="#" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"
@@ -971,7 +978,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 
   {/* Link 2: Project AA-00 (Normal Pointer Cursor) */}
   <a 
-    href="https://project-aa00-placeholder.com" 
+    href="#" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"

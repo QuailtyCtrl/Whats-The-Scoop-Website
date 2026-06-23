@@ -85,12 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "What's The Scoop? — Handcrafted Ice Cream in Innisfil, ON" },
       { name: "twitter:description", content: "Handcrafted ice cream, non-dairy scoops and frozen treats in Innisfil, Ontario. Open daily on Innisfil Beach Road." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bf4772d7-50b6-40b4-8226-3c542c2886e9/id-preview-198b24af--ab703faf-1ed4-4b20-bacc-c872582053a5.lovable.app-1782139671963.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bf4772d7-50b6-40b4-8226-3c542c2886e9/id-preview-198b24af--ab703faf-1ed4-4b20-bacc-c872582053a5.lovable.app-1782139671963.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", type: "image/png", href: "/__l5e/assets-v1/d41512fc-d536-46bf-b72a-901e1dc32e0e/wts-hero.png" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" },
