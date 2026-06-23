@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import flavorStrawberry from "@/assets/flavor-strawberry.jpg";
 import flavorMint from "@/assets/flavor-mint.jpg";
 import flavorCaramel from "@/assets/flavor-caramel.jpg";
@@ -198,8 +198,16 @@ function PriceBoard({ title, rows }: { title: string; rows: { size: string; pric
   );
 }
 
-function MenuModal({ onClose }: { onClose: () => void }) {
+function MenuModal({
+  onClose,
+  scrollToPricing = false,
+}: {
+  onClose: () => void;
+  scrollToPricing?: boolean;
+}) {
   const [tab, setTab] = useState<"flavours" | "nondairy" | "treats">("flavours");
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const pricingRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -213,6 +221,14 @@ function MenuModal({ onClose }: { onClose: () => void }) {
       document.body.style.overflow = prev;
     };
   }, [onClose]);
+
+  useEffect(() => {
+    if (!scrollToPricing) return;
+    const id = window.setTimeout(() => {
+      pricingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+    return () => window.clearTimeout(id);
+  }, [scrollToPricing]);
 
   const tabs: { id: typeof tab; label: string }[] = [
     { id: "flavours", label: "Flavours" },
@@ -232,6 +248,7 @@ function MenuModal({ onClose }: { onClose: () => void }) {
       onClick={onClose}
     >
       <div
+        ref={scrollRef}
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-white text-cocoa rounded-[2rem] shadow-2xl ring-1 ring-cocoa/10"
       >
@@ -271,7 +288,7 @@ function MenuModal({ onClose }: { onClose: () => void }) {
 
           <MenuGrid items={items} />
 
-          <div className="mt-8">
+          <div ref={pricingRef} className="mt-8 scroll-mt-4">
             {tab === "treats" ? (
               <PriceBoard title="Frozen Treats Pricing" rows={treatPrices} />
             ) : (
@@ -286,6 +303,18 @@ function MenuModal({ onClose }: { onClose: () => void }) {
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuToPricing, setMenuToPricing] = useState(false);
+
+  const openMenuAtPricing = () => {
+    setMenuToPricing(true);
+    setMenuOpen(true);
+  };
+
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="min-h-screen bg-cream text-cocoa font-sans">
 
@@ -295,9 +324,27 @@ function Index() {
           <img src={wtsLogo} alt="What's The Scoop?" className="h-12 md:h-14 w-auto" />
         </a>
         <div className="hidden md:flex gap-8 font-semibold uppercase text-xs tracking-[0.18em]">
-          <a href="#flavours" className="hover:text-strawberry transition-colors">Our Menu</a>
-          <a href="#treats" className="hover:text-strawberry transition-colors">Socials</a>
-          <a href="#visit" className="hover:text-strawberry transition-colors">About Us</a>
+          <button
+            type="button"
+            onClick={openMenuAtPricing}
+            className="hover:text-strawberry transition-colors"
+          >
+            Our Menu
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToId("socials")}
+            className="hover:text-strawberry transition-colors"
+          >
+            Socials
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToId("visit")}
+            className="hover:text-strawberry transition-colors"
+          >
+            About Us
+          </button>
         </div>
         <a
           href="#visit"
@@ -454,6 +501,61 @@ function Index() {
         </div>
       </section>
 
+      {/* Socials */}
+      <section id="socials" className="px-6 md:px-10 py-24 bg-cream border-t border-cocoa/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block text-[11px] uppercase tracking-[0.25em] font-semibold text-strawberry mb-3">
+              Socials
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold">
+              Follow the scoop. 📱
+            </h2>
+            <p className="text-cocoa/65 mt-3 max-w-md mx-auto">
+              New flavours, special hours and giveaways — we post it all on social.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <a
+              href="https://www.facebook.com/p/Whats-The-Scoop-61562122709985/"
+              target="_blank"
+              rel="noreferrer"
+              className="group bg-white rounded-3xl p-8 ring-1 ring-cocoa/5 hover:-translate-y-1 transition-transform shadow-lg shadow-cocoa/5 flex items-center gap-5"
+            >
+              <div className="size-14 rounded-2xl bg-mint/20 grid place-items-center text-3xl">
+                📘
+              </div>
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.2em] font-semibold text-cocoa/50">
+                  Facebook
+                </div>
+                <div className="font-display text-2xl font-semibold group-hover:text-strawberry transition-colors">
+                  @WhatsTheScoop
+                </div>
+              </div>
+            </a>
+            <a
+              href="https://www.instagram.com/p/DJjh_L4RVE0/"
+              target="_blank"
+              rel="noreferrer"
+              className="group bg-white rounded-3xl p-8 ring-1 ring-cocoa/5 hover:-translate-y-1 transition-transform shadow-lg shadow-cocoa/5 flex items-center gap-5"
+            >
+              <div className="size-14 rounded-2xl bg-strawberry/15 grid place-items-center text-3xl">
+                📸
+              </div>
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.2em] font-semibold text-cocoa/50">
+                  Instagram
+                </div>
+                <div className="font-display text-2xl font-semibold group-hover:text-strawberry transition-colors">
+                  @whatsthescoop
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Visit / Hours */}
       <section id="visit" className="px-6 md:px-10 py-24 bg-white border-t border-cocoa/5">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
@@ -581,11 +683,20 @@ function Index() {
             </ul>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-cream/10 text-xs uppercase tracking-[0.2em] text-cream/40">
-          © {new Date().getFullYear()} What's The Scoop? · Innisfil, Ontario
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-cream/10 flex flex-col md:flex-row items-center justify-between gap-3 text-[10px] uppercase tracking-[0.2em] text-cream/40">
+          <span>© {new Date().getFullYear()} What's The Scoop? · Innisfil, Ontario</span>
+          <span className="opacity-70">SAM Studios® MMXXIV | Project AA-00</span>
         </div>
       </footer>
-      {menuOpen && <MenuModal onClose={() => setMenuOpen(false)} />}
+      {menuOpen && (
+        <MenuModal
+          scrollToPricing={menuToPricing}
+          onClose={() => {
+            setMenuOpen(false);
+            setMenuToPricing(false);
+          }}
+        />
+      )}
     </div>
   );
 }
