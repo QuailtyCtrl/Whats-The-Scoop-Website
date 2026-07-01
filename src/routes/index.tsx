@@ -805,7 +805,7 @@ a, button, a *, button *, [role="button"], label, input, select {
                 </div>
               </a>
               <a
-                href="https://www.instagram.com/whatsthescoop.innisfil/"
+                href="https://www.instagram.com/whatsthescoop3/"
                 target="_blank"
                 rel="noreferrer"
                 className="group bg-white rounded-3xl p-8 ring-1 ring-cocoa/5 hover:-translate-y-1 transition-transform shadow-lg shadow-cocoa/5 flex items-center gap-5"
@@ -933,7 +933,7 @@ a, button, a *, button *, [role="button"], label, input, select {
         </li>
         <li>
           <a
-            href="https://www.instagram.com/whatsthescoop.innisfil/"
+            href="https://www.instagram.com/whatsthescoop3/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-cream/60 hover:text-cream transition-colors duration-200"
@@ -965,7 +965,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 <div className="flex items-center gap-x-2 opacity-70 select-none">
   {/* Link 1: SAM Studios (Normal Pointer Cursor) */}
   <a 
-    href="https://samstuidos.vercel.app" 
+    href="https://gotosamstudios.vercel.app/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"
@@ -978,7 +978,7 @@ a, button, a *, button *, [role="button"], label, input, select {
 
   {/* Link 2: Project AA-00 (Normal Pointer Cursor) */}
   <a 
-    href="https://samstuidos.vercel.app" 
+    href="https://gotosamstudios.vercel.app/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="hover:text-cream transition-colors duration-200 normal-cursor"
